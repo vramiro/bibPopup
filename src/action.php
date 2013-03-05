@@ -40,34 +40,33 @@ class action_plugin_bibPopup extends DokuWiki_Action_Plugin {
  
 
   function _hookMetaheader(&$event, $param) {
-	$event->data["script"][] = array ("type" => "text/javascript",
+
+        $event->data["script"][] = array ("type" => "text/javascript",
                                           "charset" => "utf-8",
-					  "_data" => "",
-					  "src" => DOKU_BASE."lib/plugins/bibPopup/prototype.js"
-				          );
+                                          "_data" => "",
+                                          "src" => DOKU_BASE."b2/client/all/all.js"
+                                          );
+        $event->data["script"][] = array ("type" => "text/javascript",
+                                          "charset" => "utf-8",
+                                          "_data" => "",
+                                          "src" => DOKU_BASE."lib/plugins/bibPopup/jquery.js"
+                                          );
         $event->data["script"][] = array ("type" => "text/javascript",
              				  "charset" => "utf-8",
                                           "_data" => "",
                                           "src" => DOKU_BASE."lib/plugins/bibPopup/bibtex.js"
                                           );
-  	$event->data['link'][] = array('rel'=>'stylesheet', 
-					'media'=>'all', 
-				 	'type'=>'text/css',
-                          	 	'href'=>DOKU_BASE.'lib/plugins/bibPopup/bibtex.css'
-					);
 
         $event->data["script"][] = array ("type" => "text/javascript",
                                           "charset" => "utf-8",
                                           "_data" => "",
-                                          "src" => DOKU_BASE."lib/plugins/folded/script.js"
+                                          "src" => DOKU_BASE."lib/plugins/bibPopup/jsbib.js"
                                           );
 
-        $event->data["link"][] = array ("rel" => "stylesheet",
-                                          "media" => "all",
-                                          "type" => "text/css",
-                                          "href" => DOKU_BASE."lib/plugins/folded/style.css"
-                                          );
-
-
+        $event->data['link'][] = array('rel'=>'stylesheet',
+                                        'media'=>'all',
+                                        'type'=>'text/css',
+                                        'href'=>DOKU_BASE.'lib/plugins/bibPopup/jsbib.css'
+                                        );
   }
 }
